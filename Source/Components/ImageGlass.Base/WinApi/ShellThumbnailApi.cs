@@ -21,6 +21,7 @@ Credit to Daniel Peñalba:
 https://stackoverflow.com/questions/21751747/extract-thumbnail-for-any-file-in-windows
 */
 
+using ImageGlass.Base.Photoing.Codecs;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 
@@ -151,6 +152,8 @@ public static class ShellThumbnailApi
     /// </summary>
     public static Bitmap? GetThumbnail(string fileName, int width, int height, ShellThumbnailOptions options)
     {
+        return PhotoCodec.GetThumbnail(fileName, width, height);
+        /*
         if (!File.Exists(fileName)) return null;
 
         Bitmap? clonedBitmap = null;
@@ -186,6 +189,7 @@ public static class ShellThumbnailApi
         }
 
         return clonedBitmap;
+        */
     }
 
 

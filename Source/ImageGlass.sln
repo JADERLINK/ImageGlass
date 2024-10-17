@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageGlass.WebP", "Componen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImageGlass.WinTouch", "Components\ImageGlass.WinTouch\ImageGlass.WinTouch.csproj", "{96A8D885-BB41-428F-90F5-021F345B4166}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScarletLib", "ScarletLib\ScarletLib.csproj", "{E645617F-5DAE-4FA5-AC77-8839C0233830}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -312,6 +314,36 @@ Global
 		{96A8D885-BB41-428F-90F5-021F345B4166}.Release|x64.Build.0 = Release|x64
 		{96A8D885-BB41-428F-90F5-021F345B4166}.Release|x86.ActiveCfg = Release|x64
 		{96A8D885-BB41-428F-90F5-021F345B4166}.Release|x86.Build.0 = Release|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Debug|Any CPU.Build.0 = Debug|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Debug|ARM.ActiveCfg = Debug|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Debug|ARM.Build.0 = Debug|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Debug|ARM64.Build.0 = Debug|ARM64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Debug|x64.ActiveCfg = Debug|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Debug|x64.Build.0 = Debug|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Debug|x86.ActiveCfg = Debug|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Debug|x86.Build.0 = Debug|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Publish_Release|Any CPU.ActiveCfg = Release|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Publish_Release|Any CPU.Build.0 = Release|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Publish_Release|ARM.ActiveCfg = Release|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Publish_Release|ARM.Build.0 = Release|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Publish_Release|ARM64.ActiveCfg = Release|ARM64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Publish_Release|ARM64.Build.0 = Release|ARM64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Publish_Release|x64.ActiveCfg = Release|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Publish_Release|x64.Build.0 = Release|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Publish_Release|x86.ActiveCfg = Release|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Publish_Release|x86.Build.0 = Release|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Release|Any CPU.ActiveCfg = Release|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Release|Any CPU.Build.0 = Release|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Release|ARM.ActiveCfg = Release|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Release|ARM.Build.0 = Release|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Release|ARM64.ActiveCfg = Release|ARM64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Release|ARM64.Build.0 = Release|ARM64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Release|x64.ActiveCfg = Release|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Release|x64.Build.0 = Release|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Release|x86.ActiveCfg = Release|x64
+		{E645617F-5DAE-4FA5-AC77-8839C0233830}.Release|x86.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -24,6 +24,7 @@ using PhotoSauce.MagicScaler;
 using System.Runtime.CompilerServices;
 using System.Text;
 using WicNet;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using ColorProfile = ImageMagick.ColorProfile;
 
 namespace ImageGlass.Base.Photoing.Codecs;
@@ -215,7 +216,29 @@ public static class PhotoCodec
         }
         catch { }
 
+
+        if (ext == ".GNF")
+        {
+            meta.OriginalHeight = 0;
+            meta.OriginalWidth = 0;
+            try
+            {
+                var gnf = new Scarlet.IO.ImageFormats.GNF();
+                gnf.Open(fi.FullName, Scarlet.IO.Endian.LittleEndian);
+
+                meta.OriginalHeight = (int)(ExtractData(gnf.ImageInformation2, 0, 13) + 1);
+                meta.OriginalWidth = (int)(ExtractData(gnf.ImageInformation2, 14, 27) + 1);
+            }
+            catch { }
+        }
+
         return meta;
+
+        uint ExtractData(uint val, int first, int last)
+        {
+            uint mask = (((uint)(1 << ((last + 1) - first)) - 1) << first);
+            return ((val & mask) >> first);
+        }
     }
 
 
@@ -256,6 +279,51 @@ public static class PhotoCodec
     {
         if (string.IsNullOrEmpty(filePath) || width == 0 || height == 0) return null;
 
+        var ext = Path.GetExtension(filePath).ToLowerInvariant();
+
+        if (ext == ".gnf")// obtem a Thumbnail das miniaturas das imagens
+        {
+            try
+            {
+                var gnf = new Scarlet.IO.ImageFormats.GNF();
+                gnf.Open(filePath, Scarlet.IO.Endian.LittleEndian);
+                var bitmap = gnf.GetBitmap(0, 0);
+
+                int newHeight = bitmap.Height;
+                int newWidth = bitmap.Width;
+
+                if (newWidth > width || newWidth > width)
+                {
+                    newWidth = (int)width;
+                    double aspectRatio = (double)bitmap.Height / bitmap.Width;
+                    newHeight = (int)(width * aspectRatio);
+
+                    if (newHeight > width)
+                    {
+                        double aspectRatio2 = (double)bitmap.Width / bitmap.Height;
+                        newWidth = (int)(width * aspectRatio2);
+                        newHeight = (int)width;
+                    }
+
+                    if (newHeight < 4)
+                    {
+                        newHeight = 4;
+                    }
+                    if (newWidth < 4)
+                    {
+                        newWidth = 4;
+                    }
+                }
+
+                Image.GetThumbnailImageAbort myCallback = new Image.GetThumbnailImageAbort(() => false);
+                var imag = bitmap.GetThumbnailImage((int)newWidth, (int)newHeight, myCallback, IntPtr.Zero);
+                return (Bitmap)imag;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         var options = new CodecReadOptions()
         {
@@ -267,7 +335,6 @@ public static class PhotoCodec
             ApplyColorProfileForAll = false,
         };
         var settings = ParseSettings(options, false, filePath);
-        var ext = Path.GetExtension(filePath).ToLowerInvariant();
 
 
         var imgData = await ReadMagickImageAsync(filePath, ext, settings, options, null, new());
@@ -302,6 +369,13 @@ public static class PhotoCodec
             token.ThrowIfCancellationRequested();
         }
         catch (OperationCanceledException) { return null; }
+
+
+        var Extension = Path.GetExtension(filePath).ToLowerInvariant();
+        if (Extension == ".gnf")// imagem de pre carregamento
+        {
+            return null;
+        }
 
         var settings = ParseSettings(new() { FirstFrameOnly = true }, false, filePath);
         WicBitmapSource? result = null;
@@ -831,6 +905,38 @@ public static class PhotoCodec
         #region Read image data
         switch (ext)
         {
+            case ".GNF":
+                Bitmap? bitm = null;
+                try
+                {
+                    var gnf = new Scarlet.IO.ImageFormats.GNF();
+                    gnf.Open(filePath, Scarlet.IO.Endian.LittleEndian);
+                    bitm = gnf.GetBitmap(0, 0);
+                }
+                catch (Exception)
+                {
+                }
+
+                WicBitmapSource? src = null;
+
+                var hBitmap = new IntPtr();
+
+                try
+                {
+                    hBitmap = bitm.GetHbitmap();
+                    src = WicBitmapSource.FromHBitmap(hBitmap);
+                }
+                catch (ArgumentException)
+                {
+                }
+                finally
+                {
+                    Windows.Win32.PInvoke.DeleteObject(new Windows.Win32.Graphics.Gdi.HGDIOBJ(hBitmap));
+                }
+
+                result.Image = src;
+
+                break;
             case ".TXT": // base64 string
             case ".B64":
                 var base64Content = string.Empty;
