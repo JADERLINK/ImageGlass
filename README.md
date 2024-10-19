@@ -1,3 +1,14 @@
+Gnf Addon To ImageGlass
+===
+This plugin allows ImageGlass to view GNF files, for this the Scarlet library is used.
+<br>Note: The program is recompiled, since ImageGlass does not support plugins, the code for this plugin is added together with the program code.
+
+[Scarlet Licence](https://github.com/xdanieldzd/Scarlet/blob/master/LICENSE.md)
+
+<br>
+<br>
+<br>
+
 ImageGlass - A lightweight, versatile image viewer
 ===
 
