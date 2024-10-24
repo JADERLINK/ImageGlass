@@ -1,4 +1,5 @@
-﻿namespace ImageGlass
+﻿
+namespace ImageGlass
 {
     partial class FrmAbout
     {
@@ -28,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbout));
             ((System.ComponentModel.ISupportInitialize)Web2).BeginInit();
             SuspendLayout();
             // 
@@ -46,6 +48,7 @@
             BackdropStyle = Base.BackdropStyle.Mica;
             ClientSize = new Size(594, 600);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(0);
             MinimizeBox = false;
             Name = "FrmAbout";

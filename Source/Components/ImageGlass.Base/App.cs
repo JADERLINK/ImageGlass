@@ -27,7 +27,7 @@ public class App
     /// <summary>
     /// Gets the application executable path
     /// </summary>
-    public static string IGExePath => StartUpDir("ImageGlass.exe");
+    public static string IGExePath => StartUpDir("VariantImageViewer.exe");
 
 
     /// <summary>

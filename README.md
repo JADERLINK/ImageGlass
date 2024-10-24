@@ -1,3 +1,13 @@
+VariantImageViewer
+===
+
+The fork and the name of the program was renamed to "VariantImageViewer", the author of imageGlass requested that I rename my fork with another name.
+<br>This fork is ImageGlass together with "GnfAddon" which is a plugin that allows viewing GNF images in ImageGlass, which in this fork was renamed to "VariantImageViewer".
+
+<br>
+<br>
+<br>
+
 Gnf Addon To ImageGlass
 ===
 This plugin allows ImageGlass to view GNF files, for this the Scarlet library is used.

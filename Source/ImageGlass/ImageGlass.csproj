@@ -7,10 +7,10 @@
         <UseWindowsForms>true</UseWindowsForms>
         <ImplicitUsings>enable</ImplicitUsings>
         <Platforms>x64;ARM64</Platforms>
-        <ApplicationIcon>icon256.ico</ApplicationIcon>
+        <ApplicationIcon>icon.ico</ApplicationIcon>
         <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 
-        <AssemblyTitle>ImageGlass</AssemblyTitle>
+        <AssemblyTitle>VariantImageViewer</AssemblyTitle>
         <Description>A lightweight, versatile image viewer</Description>
         <Copyright>Copyright © 2010 - 2024 Duong Dieu Phap</Copyright>
         <Company>Duong Dieu Phap</Company>
@@ -33,6 +33,7 @@
         <ValidateExecutableReferencesMatchSelfContained>false</ValidateExecutableReferencesMatchSelfContained>
         <AnalysisLevel>latest-recommended</AnalysisLevel>
         <NeutralLanguage>en</NeutralLanguage>
+        <AssemblyName>VariantImageViewer</AssemblyName>
     </PropertyGroup>
 
 
@@ -100,7 +101,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="icon256.ico" />
         <Content Include="License\Apache License 2.0.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>

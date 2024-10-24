@@ -45,8 +45,8 @@ namespace ImageGlass
             AutoScaleMode = AutoScaleMode.Font;
             BackdropStyle = Base.BackdropStyle.Mica;
             ClientSize = new Size(2277, 1425);
-            Icon = (Icon)resources.GetObject("$this.Icon");
             KeyPreview = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(6);
             MaximizeBox = true;
             MinimumSize = new Size(500, 300);

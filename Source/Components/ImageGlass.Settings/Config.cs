@@ -1628,8 +1628,7 @@ public static class Config
     public static async Task UpdateFormIcon(Form frm)
     {
         // Icon theming
-        if (Config.Theme.Settings.AppLogo?.GetHicon() is not IntPtr hIcon) return;
-        frm.Icon = Icon.FromHandle(hIcon);
+        if (Config.Theme.Settings.AppLogo?.GetHicon() is not IntPtr hIcon) return; 
 
         await Task.Delay(200);
         frm.ShowIcon = Config.ShowAppIcon;

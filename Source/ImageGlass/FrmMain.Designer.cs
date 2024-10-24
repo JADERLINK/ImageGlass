@@ -1208,12 +1208,12 @@ namespace ImageGlass
             Controls.Add(PicMain);
             Controls.Add(Gallery);
             DoubleBuffered = true;
-            Icon = (Icon)resources.GetObject("$this.Icon");
             KeyPreview = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2);
             Name = "FrmMain";
             RightToLeftLayout = true;
-            Text = "ImageGlass";
+            Text = "VariantImageViewer";
             Load += FrmMain_Load;
             KeyDown += FrmMain_KeyDown;
             KeyUp += FrmMain_KeyUp;
